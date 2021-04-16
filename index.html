@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerplay(){
+            let random =Math.floor(Math.random()*3);
+            if (random== 0){
+                return "rock";
+            }else if (random== 1){
+                return "paper";
+            }else{
+                 return "scissors";
+            }
+        }
+        function gamePlay(){
+            let playerscore = 0;
+
+            let playerChoice = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+            let comChoice = computerplay();
+            playerscore += singleround(playerChoice,comChoice);  
+            
+            playerChoice = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+            comChoice = computerplay();
+            playerscore += singleround(playerChoice,comChoice); 
+            
+            playerChoice = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+            comChoice = computerplay();
+            playerscore += singleround(playerChoice,comChoice); 
+
+            playerChoice = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+            comChoice = computerplay();
+            playerscore += singleround(playerChoice,comChoice); 
+
+            playerChoice = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+            comChoice = computerplay();
+            playerscore += singleround(playerChoice,comChoice); 
+            
+            if (playerscore < 0){
+                console.log("you lost.");
+            }else if (playerscore > 0){
+                console.log("you win");
+            }else{
+                console.log("you tie");
+            }
+      
+        }
+        function singleround(computerplay,personplay){
+            if ((personplay=="rock" && computerplay=="scissors")||(personplay=="paper" && computerplay=="rock")||(personplay=="scissors" && computerplay=="paper")){
+                console.log(` Win   ${personplay}   vs   ${computerplay}`);
+                return 1;
+                console.log(score)
+            }else if ((personplay=="scissors" && computerplay=="rock")||(personplay=="rock"&& computerplay=="paper" )||(personplay=="paper" && computerplay=="scissors")){
+                console.log(` Loss   ${personplay}   vs   ${computerplay}`);
+                return -1;
+            }else if ((personplay=="rock" && computerplay=="rock")||(personplay=="paper"&& computerplay=="paper" )||(personplay=="scissors" && computerplay=="scissors")){
+                console.log(` Tie   ${personplay}   vs   ${computerplay}`);
+                return 0;
+            }
+        }
+        gamePlay(); 
+           
+    </script>
+</body>
+</html>
